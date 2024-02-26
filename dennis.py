@@ -1,2 +1,2 @@
 def mijnmethode():
-    return "Dit heeft Dennis geschreven."
+    return "Dit heeft Dennis geschreven!"
