@@ -1,2 +1,5 @@
+import pandas
 def mijnmethode():
-    return " hallo allemaal als je dit leest dat werkt het en het komt uit het bestand Asef"
+    pokemons = pandas.read_csv(Pokemon.csv)
+    print(pokemons)
+    return "dit komt van asef"
