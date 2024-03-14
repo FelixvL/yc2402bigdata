@@ -1,4 +1,4 @@
-Timestamp,Age,Gender,City,Position,Years of experience,Your level,Yearly bruto salary (without bonus and stocks) in EUR,Salary one year ago,Salary two years ago,Are you getting any Stock Options?,Main language at work,Company size,Company type
+Timestamp,Age,Gender,City,Position,Years of experience,Your level,annualbrutoearnings,Salary one year ago,Salary two years ago,Are you getting any Stock Options?,Main language at work,Company size,Company type
 14/12/2018 12:41:33,43,M,München,QA Ingenieur,11,Senior,77000,76200,68000,No,Deutsch,100-1000,Product
 14/12/2018 12:42:09,33,F,München,Senior PHP Magento developer ,8,Senior,65000,55000,55000,No,Deutsch,50-100,Product
 14/12/2018 12:47:36,32,M,München,Software Engineer,10,Senior,88000,73000,54000,No,Deutsch,1000+,Product
