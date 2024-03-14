@@ -29,10 +29,15 @@ def calculate_average(calc_list):
     except ZeroDivisionError:
         average = 0
 
-    return round(average, 2)
+    if total == 0:
+        return ""
+    else:
+        return round(average, 0)
 
 
 def job_salary_average(beroep="devops", jaar="2020"):
+    # Calculates for a job the average yearly salary per companysize
+
     df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
 
     YearlyBrutoSalaryColumn = 'Yearly bruto salary (without bonus and stocks) in EUR'
@@ -51,7 +56,7 @@ def job_salary_average(beroep="devops", jaar="2020"):
     extra_large_company_salary = []
 
     for i, line in df.iterrows():
-        if str(line['Position']).lower().strip() == beroep:
+        if str(line['Position']).capitalize().strip() == beroep:
             if line['Company size'] == extra_small_company or line['Company size'] == small_company:
                 small_company_salary.append(line[YearlyBrutoSalaryColumn])
 
@@ -75,17 +80,28 @@ def job_salary_average(beroep="devops", jaar="2020"):
 
 
 def all_positions(jaar="2020"):
+    # Returns all jobs in the dataset
     df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
     total_jobs = []
     for i, line in df.iterrows():
-        total_jobs.append(str(line['Position']).lower().strip())
-    return set(total_jobs)
+        total_jobs.append(str(line['Position']).capitalize().strip())
+    return total_jobs
 
-#print(all_positions())
+# print(all_positions())
+
+
+def count_jobs(jobs):
+    joblist = []
+    for job in set(jobs):
+        if jobs.count(job) >= 3:
+            joblist.append(job)
+    return joblist
+
+# print(count_jobs(all_positions()))
 
 
 def jobs_salary(jaar="2020"):
-    mylist = all_positions(jaar)
+    mylist = count_jobs(all_positions(jaar))
     returnlist = []
 
     for job in mylist:
@@ -93,8 +109,7 @@ def jobs_salary(jaar="2020"):
 
     return returnlist
 
-#print(jobs_salary())
-
+# print(jobs_salary())
 
 
 def data_to_json(data):
@@ -111,8 +126,9 @@ def dict_to_json(data):
         return dumps(data, indent=4)
 
 
-print(dict_to_json(jobs_salary()))
-#print(dict_to_json(company_salary_average()))
+# print(dict_to_json(jobs_salary()))
+# print(dict_to_json(company_salary_average()))
 # print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
 # print(salary_vs_company_size(2020))
 # print(data_to_json(company_salary_average()))
+print("Import dennis success!")
