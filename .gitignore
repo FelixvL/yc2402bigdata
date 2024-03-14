@@ -3,3 +3,5 @@ __pycache__/**
 .DS_Store
 .~lock.IT_Salary_Survey_EU_2020.csv#
 tempCodeRunnerFile.py
+.vscode/**
+IT_Salary_Survey_EU_2020.numbers
