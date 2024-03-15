@@ -90,10 +90,10 @@ def all_positions(jaar="2020"):
 # print(all_positions())
 
 
-def count_jobs(jobs):
+def count_jobs(jobs, duplicates=3):
     joblist = []
     for job in set(jobs):
-        if jobs.count(job) >= 3:
+        if jobs.count(job) >= duplicates:
             joblist.append(job)
     return joblist
 
@@ -101,7 +101,7 @@ def count_jobs(jobs):
 
 
 def jobs_salary(jaar="2020"):
-    mylist = count_jobs(all_positions(jaar))
+    mylist = count_jobs(all_positions(jaar), 3)
     returnlist = []
 
     for job in mylist:
