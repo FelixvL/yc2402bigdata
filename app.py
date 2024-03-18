@@ -33,7 +33,7 @@ def testasef():
 def testdennis():
     return dennis.mijnmethode()
 
-@app.route("/testdennis/<jaar>")
+@app.route("/salaryCompanySize/<jaar>")
 def salary_vs_company_size(jaar):
     return dennis.dict_to_json(dennis.jobs_salary(jaar=jaar))
 
