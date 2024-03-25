@@ -92,9 +92,11 @@ def all_positions(jaar="2020"):
 
 def count_jobs(jobs, duplicates=3):
     joblist = []
+    exclude_list = ["Nan", "Sre", "Cto"]
     for job in set(jobs):
-        if jobs.count(job) >= duplicates:
-            joblist.append(job)
+        if job not in exclude_list:
+            if jobs.count(job) >= duplicates:
+                joblist.append(job)
     return joblist
 
 # print(count_jobs(all_positions()))
@@ -126,7 +128,7 @@ def dict_to_json(data):
         return dumps(data, indent=4)
 
 
-print(dict_to_json(jobs_salary()))
+# print(dict_to_json(jobs_salary()))
 # print(dict_to_json(company_salary_average()))
 # print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
 # print(salary_vs_company_size(2020))
