@@ -56,7 +56,7 @@ def job_salary_average(beroep="devops", jaar="2020"):
     extra_large_company_salary = []
 
     for i, line in df.iterrows():
-        if str(line['Position']).capitalize().strip() == beroep:
+        if str(line['Position']).capitalize().strip() == beroep.capitalize():
             if line['Company size'] == extra_small_company or line['Company size'] == small_company:
                 small_company_salary.append(line[YearlyBrutoSalaryColumn])
 
@@ -76,7 +76,7 @@ def job_salary_average(beroep="devops", jaar="2020"):
             'xlarge': calculate_average(extra_large_company_salary)}
 
 
-# print(company_salary_average())
+# print(job_salary_average())
 
 
 def all_positions(jaar="2020"):
@@ -129,7 +129,7 @@ def dict_to_json(data):
 
 
 # print(dict_to_json(jobs_salary()))
-# print(dict_to_json(company_salary_average()))
+print(dict_to_json(job_salary_average()))
 # print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
 # print(salary_vs_company_size(2020))
 # print(data_to_json(company_salary_average()))
