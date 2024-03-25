@@ -12,3 +12,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 aikey = os.environ.get('OURENVKEY')
+
+
+

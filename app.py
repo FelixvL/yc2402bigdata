@@ -37,6 +37,10 @@ def testdennis():
 def salary_vs_company_size(jaar):
     return dennis.dict_to_json(dennis.jobs_salary(jaar=jaar))
 
+@app.route("/getjobs/<jaar>")
+def get_jobs(jaar):
+    return dennis.dict_to_json(dennis.count_jobs(dennis.all_positions(jaar)))
+
 @app.route("/taalprijs")
 def salary_vs_language():
     return celina.language_salary()
