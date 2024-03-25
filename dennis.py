@@ -37,6 +37,8 @@ def calculate_average(calc_list):
 
 def job_salary_average(beroep="devops", jaar="2020"):
     # Calculates for a job the average yearly salary per companysize
+    beroep = beroep.replace('+', ' ')
+        
 
     df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
 
@@ -76,7 +78,7 @@ def job_salary_average(beroep="devops", jaar="2020"):
             'xlarge': calculate_average(extra_large_company_salary)}
 
 
-# print(job_salary_average())
+# print(job_salary_average('Data+engineer', 2020))
 
 
 def all_positions(jaar="2020"):
@@ -129,7 +131,7 @@ def dict_to_json(data):
 
 
 # print(dict_to_json(jobs_salary()))
-print(dict_to_json(job_salary_average()))
+# print(dict_to_json(job_salary_average("Data+engineer", 2020)))
 # print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
 # print(salary_vs_company_size(2020))
 # print(data_to_json(company_salary_average()))
